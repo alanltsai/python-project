@@ -14,6 +14,7 @@ with open(csv_path,newline="") as csv_file:
     start_row_count = 0
     start_total = 0
     start_change = 0
+    changeList = []
 
     for row in csv_reader:
     	# Problem 1 
@@ -25,7 +26,19 @@ with open(csv_path,newline="") as csv_file:
         start_total = float(total)
 
         # Problem 3
-        
+        if start_change == 0:
+            start_change = float(row[1])
+        else:   
+            change = float(row[1]) - float(start_change)
+            start_change = float(row[1])
+            # print(change)
+            changeList.append(float(change))
 
+print("----------------------------")
+print("Financial Analysis")
+print("----------------------------")
 print(f"Total Months: {row_count}")
 print(f"Total Net Profit/Loss: ${total}")
+print(f"Average Change: ${round((sum(changeList)/len(changeList)),2)}")
+print(f"Greatest Increase in Profits: (${max(changeList)})")
+print(f"Greatest Decrease in Profits: (${min(changeList)})")
