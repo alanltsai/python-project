@@ -2,6 +2,7 @@ import os
 import csv
 
 csv_path = os.path.join("Resources","budget_data.csv")
+output_path = os.path.join("Output","Bank_Results.txt")
 
 def average(list):
     sum(list) / len(list)
@@ -42,3 +43,13 @@ print(f"Total Net Profit/Loss: ${total}")
 print(f"Average Change: ${round((sum(changeList)/len(changeList)),2)}")
 print(f"Greatest Increase in Profits: (${max(changeList)})")
 print(f"Greatest Decrease in Profits: (${min(changeList)})")
+
+with open(output_path, "w") as textfile:
+    print("----------------------------", file = textfile)
+    print("Financial Analysis", file = textfile)
+    print("----------------------------", file = textfile)
+    print(f"Total Months: {row_count}", file = textfile)
+    print(f"Total Net Profit/Loss: ${total}", file = textfile)
+    print(f"Average Change: ${round((sum(changeList)/len(changeList)),2)}", file = textfile)
+    print(f"Greatest Increase in Profits: (${max(changeList)})", file = textfile)
+    print(f"Greatest Decrease in Profits: (${min(changeList)})", file = textfile)
