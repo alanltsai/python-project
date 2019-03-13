@@ -35,13 +35,6 @@ with open(csv_path,newline="") as csv_file:
 
     complete = zip(monthList, profitList, changeList)
     print(complete)
-    # print(changeList)
-    # print(sum(changeList))
-    # print(len(changeList))
-    # print(average(changeList))
     print(f"Average Change: {(sum(changeList)/len(changeList))}")
     print(max(changeList))
     print(min(changeList))
-    # print(total_change)
-    # print(monthList)
-    # print(profitList)
